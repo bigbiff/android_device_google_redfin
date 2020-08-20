@@ -218,8 +218,7 @@
             ],
             "VrThreshold":"NAN",
             "Multiplier":0.001,
-            "Monitor":true,
-            "SendPowerHint":true
+            "Monitor":true
         },
         {
             "Name":"cellular-emergency",
