@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+include device/google/redfin/twrp.mk
+
 ifdef AUTOMOTIVE_PRODUCT_PATH
   #RBC# include_top device/google/auto_tcu
   #RBC# include_top device/google/pixel_tcu
