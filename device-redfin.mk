@@ -15,16 +15,18 @@
 #
 
 PRODUCT_HARDWARE := redfin
+TARGET_PREBUILT_KERNEL := device/google/redbull-kernel/Image.lz4
+LOCAL_KERNEL := device/google/redbull-kernel/Image.lz4
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-    ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-        LOCAL_KERNEL := device/google/redbull-kernel/Image.lz4
-    else
-        LOCAL_KERNEL := device/google/redbull-kernel/vintf/Image.lz4
-    endif
-else
-    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
+# ifeq ($(TARGET_PREBUILT_KERNEL),)
+#     ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+#         LOCAL_KERNEL := device/google/redbull-kernel/Image.lz4
+#     else
+#         LOCAL_KERNEL := device/google/redbull-kernel/vintf/Image.lz4
+#     endif
+# else
+#     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+# endif
 
 PRODUCT_VENDOR_KERNEL_HEADERS := device/google/redbull-kernel/sm7250/kernel-headers
 

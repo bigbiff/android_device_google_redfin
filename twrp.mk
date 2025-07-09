@@ -3,7 +3,8 @@ LOCAL_PATH := device/google/redfin
 include vendor/google/redfin/BoardConfigVendor.mk
 
 BOARD_KERNEL_IMAGE_NAME := Image.lz4
-BOARD_USES_QCOM_FBE_DECRYPTION := true
+TW_INCLUDE_CRYPTO := false
+BOARD_USES_QCOM_FBE_DECRYPTION := false
 DISABLE_ARTIFACT_PATH_REQUIREMENTS := true
 #PLATFORM_VERSION := 99.87.36
 PLATFORM_VERSION :=  14
@@ -12,6 +13,8 @@ BOOT_SECURITY_PATCH := 2023-11-05
 VENDOR_SECURITY_PATCH := 2023-11-05
 PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 PRODUCT_ENFORCE_VINTF_MANIFEST := true
+TW_LOAD_VENDOR_MODULES := $(shell echo \"$(shell ls $(LOCAL_PATH)/redfin/recovery/root/vendor/lib/modules/1.1)\")
+TW_LOAD_VENDOR_BOOT_MODULES := true
 
 TARGET_RECOVERY_TWRP_LIB := \
     librecovery_twrp_redfin \
@@ -58,4 +61,4 @@ TW_OVERRIDE_SYSTEM_PROPS := \
 TW_EXCLUDE_APEX := true
 
 #PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/task_profiles.json:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/task_profiles.json
+    $(LOCAL_PATH)/task_profiles.json:$(TARGET_COPY_OUT_RECOVERY)/root/system/etc/task_profiles/task_profiles_30.json
